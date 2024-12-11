@@ -25,7 +25,7 @@ public class RegistrationPage {
 	   private By signUpMsg=By.xpath("//div[text()='Signup successfully, Please login!']");
 	   
 	   
-	   public String createUser(String username , String pass, String mail, String intrest, String gender, String state, String hob) {
+	   public String createUser(String username , String emailAddress, String pass, String intrest, String gender, String state, String hob) {
 		   By courseCheckBox=By.xpath("//label[text()='"
 		   		+ intrest
 		   		+ "']//preceding::input[1]");
@@ -35,7 +35,9 @@ public class RegistrationPage {
 		   
 		   Utility.findElement(driver, name).sendKeys(username);
 		   Utility.findElement(driver, passowrd).sendKeys(pass);
-		   Utility.findElement(driver, email).sendKeys(mail);
+		   String[] mailVal = emailAddress.split("@");
+		   String finalMail=mailVal[0]+Utility.getCurrentDateTime()+"@"+mailVal[1];
+		   Utility.findElement(driver, email).sendKeys(finalMail);
 		   Utility.findElement(driver, courseCheckBox).click();
 		   Utility.findElement(driver, gen).click();
 		   Utility.selectValue(driver, selectState,state);

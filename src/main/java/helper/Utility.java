@@ -142,15 +142,15 @@ public class Utility
 		
 	}
 	/***
-	 * Select by Visible Text
+	 * 
 	 * @param driver
 	 * @param locator
-	 * @param text
+	 * @param val
 	 */
-	public static void selectValue(WebDriver driver,By locator, String text) {
+	public static void selectValue(WebDriver driver,By locator, String val) {
 		
 		Select sel = new Select(findElement(driver, locator));
-		sel.selectByVisibleText(text);
+		sel.selectByVisibleText(val);
 	}
 
 }
