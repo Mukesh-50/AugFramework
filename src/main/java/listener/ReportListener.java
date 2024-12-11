@@ -26,7 +26,7 @@ public class ReportListener extends BrowserFactory implements ITestListener
 
 	public void onTestSuccess(ITestResult result) 
 	{
-		String screenshot=Utility.getScreenshotAsBase64(driver);
+		String screenshot=Utility.getScreenshotAsBase64(BrowserFactory.getInstance());
 		
 		if(ConfigReader.getValue("screenshotOnSuccess").equalsIgnoreCase("true"))
 		{
@@ -47,7 +47,7 @@ public class ReportListener extends BrowserFactory implements ITestListener
 	
 	public void onTestFailure(ITestResult result) 
 	{
-		String screenshot=Utility.getScreenshotAsBase64(driver);
+		String screenshot=Utility.getScreenshotAsBase64(BrowserFactory.getInstance());
 		
 		if(ConfigReader.getValue("screenshotOnFailure").equalsIgnoreCase("true"))
 		{
@@ -61,7 +61,7 @@ public class ReportListener extends BrowserFactory implements ITestListener
 	
 	public void onTestSkipped(ITestResult result) 
 	{   
-		String screenshot=Utility.getScreenshotAsBase64(driver);
+		String screenshot=Utility.getScreenshotAsBase64(BrowserFactory.getInstance());
 		
 		if(ConfigReader.getValue("screenshotOnSkip").equalsIgnoreCase("true"))
 		{
